@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AddItemActivity">
+
+    <EditText
+        android:id="@+id/inputIdItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Id Item"/>
+    <EditText
+        android:id="@+id/inputItemName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name Item"/>
+    <EditText
+        android:id="@+id/inputItemQuantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Quantity item"/>
+    <EditText
+        android:id="@+id/inputItemPicture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Picture Link Item"/>
+    <Button
+        android:id="@+id/buttonAddItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Item"/>
+
+</LinearLayout>
