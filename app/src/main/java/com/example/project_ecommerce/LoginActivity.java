@@ -10,7 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,7 +22,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText emailTextView, passwordTextView;
-    private Button Btn, buttonToSignup;
+    private Button Btn;
+    private ImageView img;
+    private TextView buttonToSignup;
     private ProgressBar progressbar;
     private FirebaseAuth mAuth;
 
@@ -30,11 +34,14 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         mAuth = FirebaseAuth.getInstance();
 
+        img = findViewById(R.id.image);
         emailTextView = findViewById(R.id.email);
         passwordTextView = findViewById(R.id.password);
         Btn = findViewById(R.id.login);
         buttonToSignup = findViewById(R.id.buttonToSignup);
         progressbar = findViewById(R.id.progressBar);
+
+        img.setVisibility(View.VISIBLE);
 
         Btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +84,7 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(
                         new OnCompleteListener<AuthResult>() {
@@ -94,9 +102,9 @@ public class LoginActivity extends AppCompatActivity {
 
                                     String getEmail = mAuth.getCurrentUser().getEmail().toString();
                                     if(getEmail.equals("admin@admin.com") || getEmail.equals("admin1@admin.com")){
-                                        Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+//                                        Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
                                         Toast.makeText(LoginActivity.this, "Selamat datang admin", Toast.LENGTH_SHORT).show();
-                                        startActivity(intent);
+//                                        startActivity(intent);
                                     }else{
                                         Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                                         startActivity(intent);
