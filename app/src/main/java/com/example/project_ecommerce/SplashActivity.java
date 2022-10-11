@@ -24,6 +24,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                // di perbaiki bagian getCurrentUser();
                 if(auth.getCurrentUser() != null) {
                     String getEmail = auth.getCurrentUser().getEmail().toString();
 
