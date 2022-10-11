@@ -23,6 +23,7 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
 
+
         buttonAddStaff = (Button) findViewById(R.id.buttonToStaff);
         buttonAddStock = (Button) findViewById(R.id.buttonToStock);
         buttonToLogout = (Button) findViewById(R.id.buttonToLogout);
