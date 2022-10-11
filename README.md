@@ -1,1 +1,1 @@
-Project 2 - Ecommerce
+Final project 2 - Ecommerce
