@@ -102,9 +102,9 @@ public class LoginActivity extends AppCompatActivity {
 
                                     String getEmail = mAuth.getCurrentUser().getEmail().toString();
                                     if(getEmail.equals("admin@admin.com") || getEmail.equals("admin1@admin.com")){
-//                                        Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+                                        Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
                                         Toast.makeText(LoginActivity.this, "Selamat datang admin", Toast.LENGTH_SHORT).show();
-//                                        startActivity(intent);
+                                        startActivity(intent);
                                     }else{
                                         Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                                         startActivity(intent);
