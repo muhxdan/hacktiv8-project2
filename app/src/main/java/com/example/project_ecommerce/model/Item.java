@@ -1,15 +1,17 @@
 package com.example.project_ecommerce.model;
 
 public class Item {
-    private String id, docId, name, quantity, picture;
+    private String id, docId, name, quantity, picture, category, filter;
 
     public Item(){}
 
-    public Item(String id, String name, String quantity, String picture){
+    public Item(String id, String name, String quantity, String picture, String category, String filter){
         this.id = id;
         this.name = name;
         this.quantity = quantity;
         this.picture = picture;
+        this.category = category;
+        this.filter = filter;
     }
 
     public String getId() {
@@ -49,5 +51,21 @@ public class Item {
 
     public void setPicture(String picture) {
         this.quantity = picture;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getFilter() {
+        return filter;
+    }
+
+    public void setFilter(String filter) {
+        this.filter = filter;
     }
 }

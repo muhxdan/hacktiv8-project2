@@ -2,20 +2,27 @@ package com.example.project_ecommerce;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.project_ecommerce.adapter.CategoryAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.auth.User;
 
-public class UserActivity extends AppCompatActivity implements View.OnClickListener{
+public class UserActivity extends AppCompatActivity {
     FloatingActionButton buttonUserLogout;
-    CardView elec,baju,buku,others;
     FirebaseAuth auth;
+    TextView categoryName;
+    ImageView categoryImage;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +31,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
 
         auth = FirebaseAuth.getInstance();
         buttonUserLogout = (FloatingActionButton) findViewById(R.id.buttonUserLogout);
-        elec = (CardView)  findViewById(R.id.electronic);
-        baju = (CardView) findViewById(R.id.clothing);
-        buku = (CardView) findViewById(R.id.buku);
-        others = (CardView) findViewById(R.id.others);
+
 
         buttonUserLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,32 +42,19 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(UserActivity.this,LoginActivity.class));
             }
         });
+
+        recyclerView=findViewById(R.id.rvColCategory);
+
+        String[] categoryName = getResources().getStringArray(R.array.dropdownCategory);;
+        int[] categoryPicture = {R.drawable.ic_cloth, R.drawable.ic_elec, R.drawable.ic_buku, R.drawable.ic_others};
+
+        CategoryAdapter adapter=new CategoryAdapter(this, UserActivity.this, categoryName, categoryPicture);
+
+        GridLayoutManager layoutManager=new GridLayoutManager(this,2);
+
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
+
     }
 
-    @Override
-    public void onClick(View view) {
-        // onclicknya masih gagal
-        if(view.getId() == R.id.electronic){
-            Intent intent = new Intent(UserActivity.this, ProductActivity.class);
-            Toast.makeText(UserActivity.this, "masuk", Toast.LENGTH_SHORT).show();
-            //put extra buat dapet kategori
-
-            startActivity(intent);
-        }else if(view.getId() == R.id.clothing){
-            Intent intent = new Intent(UserActivity.this, ProductActivity.class);
-            //put extra buat dapet kategori
-
-            startActivity(intent);
-        }else if(view.getId() == R.id.buku){
-            Intent intent = new Intent(UserActivity.this, ProductActivity.class);
-            //put extra buat dapet kategori
-
-            startActivity(intent);
-        }else{
-            Intent intent = new Intent(UserActivity.this, ProductActivity.class);
-            //put extra buat dapet kategori
-
-            startActivity(intent);
-        }
-    }
 }

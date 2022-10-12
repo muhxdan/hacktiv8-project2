@@ -9,24 +9,6 @@
     android:padding="10dp"
     tools:context=".StockActivity">
 
-<!--    <EditText-->
-<!--        android:id="@+id/inputIdItem"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:hint="Input Id"/>-->
-
-<!--    <EditText-->
-<!--        android:id="@+id/inputQuantityItem"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:hint="Input Quantity"/>-->
-
-<!--    <Button-->
-<!--        android:id="@+id/buttonAddStock"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Update Stock"/>-->
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recylerView"
         android:layout_width="match_parent"
