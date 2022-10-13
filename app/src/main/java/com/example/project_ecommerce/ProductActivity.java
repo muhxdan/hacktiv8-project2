@@ -11,6 +11,7 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.project_ecommerce.adapter.CategoryAdapter;
@@ -31,6 +32,7 @@ public class ProductActivity extends AppCompatActivity {
     List<Item> list = new ArrayList<>();
     private ProgressDialog progressDialog;
     ItemAdapter itemAdapter;
+    private TextView txtInfo;
     private RecyclerView recyclerView;
 
     @Override
@@ -38,6 +40,7 @@ public class ProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
         recyclerView = (RecyclerView) findViewById(R.id.rvProduct);
+        txtInfo = findViewById(R.id.txtInfo);
         db = FirebaseFirestore.getInstance();
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Loading...");
@@ -61,7 +64,8 @@ public class ProductActivity extends AppCompatActivity {
     private void getData(){
         Intent intent = getIntent();
         String getFilter = intent.getStringExtra("category");
-        Toast.makeText(this, getFilter.toLowerCase(), Toast.LENGTH_SHORT).show();
+        txtInfo.setText(getFilter.toUpperCase());
+//        Toast.makeText(this, getFilter.toLowerCase(), Toast.LENGTH_SHORT).show();
         progressDialog.show();
         db.collection("item").whereEqualTo("category", getFilter.toLowerCase())
                 .get()
@@ -72,7 +76,7 @@ public class ProductActivity extends AppCompatActivity {
                         list.clear();
                         if (task.isSuccessful()){
                             for (QueryDocumentSnapshot document : task.getResult()){
-                                Item item = new Item(document.getString("id"), document.getString("name"), document.getString("quantity"), document.getString("picture"), document.getString("category"), document.getString("filter"));
+                                Item item = new Item(document.getString("id"), document.getString("name"), document.getString("quantity"), document.getString("picture"), document.getString("category"), document.getString("filter"), document.getString("price"));
                                 item.setDocId(document.getId());
                                 list.add(item);
                                 itemAdapter.notifyDataSetChanged();

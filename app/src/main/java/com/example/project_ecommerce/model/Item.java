@@ -1,19 +1,28 @@
 package com.example.project_ecommerce.model;
 
 public class Item {
-    private String id, docId, name, quantity, picture, category, filter;
+    private String id, docId, name, quantity, picture, category, filter, price;
 
     public Item(){}
 
-    public Item(String id, String name, String quantity, String picture, String category, String filter){
+
+    public Item(String id, String name, String quantity, String picture, String category, String filter, String price){
         this.id = id;
         this.name = name;
         this.quantity = quantity;
         this.picture = picture;
         this.category = category;
         this.filter = filter;
+        this.price = price;
     }
 
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
     public String getId() {
         return id;
     }
