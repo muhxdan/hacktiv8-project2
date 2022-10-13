@@ -67,7 +67,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
             if(context instanceof ProductActivity){
                 holder.userItemName.setText(list.get(position).getName());
-                holder.userItemPrice.setText(list.get(position).getId());
+                holder.userItemPrice.setText("Rp." + list.get(position).getPrice());
                 holder.userItemStock.setText(list.get(position).getQuantity());
 
                 Glide.with(context)

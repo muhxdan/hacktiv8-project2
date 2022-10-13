@@ -129,7 +129,7 @@ public class StockActivity extends AppCompatActivity {
                         list.clear();
                         if (task.isSuccessful()){
                             for (QueryDocumentSnapshot document : task.getResult()){
-                                Item item = new Item(document.getString("id"), document.getString("name"), document.getString("quantity"), document.getString("picture"), document.getString("category"), document.getString("filter"));
+                                Item item = new Item(document.getString("id"), document.getString("name"), document.getString("quantity"), document.getString("picture"), document.getString("category"), document.getString("filter"), document.getString("price"));
                                 item.setDocId(document.getId());
                                 list.add(item);
                             }

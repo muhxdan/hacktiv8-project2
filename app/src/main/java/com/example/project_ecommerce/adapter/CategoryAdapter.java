@@ -68,6 +68,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
             super(itemView);
             courseTV = itemView.findViewById(R.id.idTVCourse);
             courseIV = itemView.findViewById(R.id.idIVcourseIV);
+            linearLayout = itemView.findViewById(R.id.temp);
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
