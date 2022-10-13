@@ -20,8 +20,6 @@ import com.google.firebase.firestore.auth.User;
 public class UserActivity extends AppCompatActivity {
     FloatingActionButton buttonUserLogout;
     FirebaseAuth auth;
-    TextView categoryName;
-    ImageView categoryImage;
     RecyclerView recyclerView;
 
     @Override
@@ -31,7 +29,6 @@ public class UserActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         buttonUserLogout = (FloatingActionButton) findViewById(R.id.buttonUserLogout);
-
 
         buttonUserLogout.setOnClickListener(new View.OnClickListener() {
             @Override

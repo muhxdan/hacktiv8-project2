@@ -1,5 +1,6 @@
 package com.example.project_ecommerce.adapter;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -21,8 +22,11 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.example.project_ecommerce.ProductActivity;
 import com.example.project_ecommerce.R;
+import com.example.project_ecommerce.UserActivity;
 import com.example.project_ecommerce.model.Item;
+import com.google.firebase.firestore.auth.User;
 
 import org.w3c.dom.Text;
 
@@ -50,34 +54,63 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_item, parent, false);
-        return new MyViewHolder(itemView);
+        if(context instanceof ProductActivity){
+            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_item_user, parent, false);
+            return new MyViewHolder(itemView);
+        }else{
+            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_item, parent, false);
+            return new MyViewHolder(itemView);
+        }
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.idItem.setText(list.get(position).getId());
-        holder.nameItem.setText(list.get(position).getName());
-        holder.quantityItem.setText(list.get(position).getQuantity());
+            if(context instanceof ProductActivity){
+                holder.userItemName.setText(list.get(position).getName());
+                holder.userItemPrice.setText(list.get(position).getId());
+                holder.userItemStock.setText(list.get(position).getQuantity());
 
-        Glide.with(context)
-                .load(list.get(position).getPicture())
-                .listener(new RequestListener<Drawable>() {
-                    @Override
-                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                        holder.progressBar.setVisibility(View.GONE);
-                        return false;
-                    }
+                Glide.with(context)
+                        .load(list.get(position).getPicture())
+                        .listener(new RequestListener<Drawable>() {
+                            @Override
+                            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                                holder.progressBarUser.setVisibility(View.GONE);
+                                return false;
+                            }
 
-                    @Override
-                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                        holder.progressBar.setVisibility(View.GONE);
-                        return false;
-                    }
-                })
-                .error(R.drawable.ic_baseline_error_24)
-                .into(holder.pictureItem);
-    }
+                            @Override
+                            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                                holder.progressBarUser.setVisibility(View.GONE);
+                                return false;
+                            }
+                        })
+                        .error(R.drawable.ic_baseline_error_24)
+                        .into(holder.userItemPicture);
+            }else{
+                holder.idItem.setText(list.get(position).getId());
+                holder.nameItem.setText(list.get(position).getName());
+                holder.quantityItem.setText(list.get(position).getQuantity());
+
+                Glide.with(context)
+                        .load(list.get(position).getPicture())
+                        .listener(new RequestListener<Drawable>() {
+                            @Override
+                            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                                holder.progressBar.setVisibility(View.GONE);
+                                return false;
+                            }
+
+                            @Override
+                            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                                holder.progressBar.setVisibility(View.GONE);
+                                return false;
+                            }
+                        })
+                        .error(R.drawable.ic_baseline_error_24)
+                        .into(holder.pictureItem);
+            }
+        }
 
     @Override
     public int getItemCount() {
@@ -89,6 +122,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
         ImageView pictureItem;
         ProgressBar progressBar;
 
+        TextView userItemName, userItemPrice, userItemStock;
+        ImageView userItemPicture;
+        ProgressBar progressBarUser;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             idItem = (TextView) itemView.findViewById(R.id.itemId);
@@ -96,6 +133,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
             quantityItem = (TextView) itemView.findViewById(R.id.itemQuantity);
             pictureItem = (ImageView) itemView.findViewById(R.id.itemImage);
             progressBar = (ProgressBar) itemView.findViewById(R.id.progress);
+
+            userItemName = (TextView) itemView.findViewById(R.id.userItemName);
+            userItemPrice = (TextView) itemView.findViewById(R.id.userItemPrice);
+            userItemStock = (TextView) itemView.findViewById(R.id.userItemStock);
+            userItemPicture = (ImageView) itemView.findViewById(R.id.userItemPict);
+            progressBarUser = (ProgressBar) itemView.findViewById(R.id.progressBarUser);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

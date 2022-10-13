@@ -3,6 +3,7 @@ package com.example.project_ecommerce;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -41,16 +42,14 @@ public class ProductActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Loading...");
         progressDialog.setMessage("Get data...");
+
         itemAdapter = new ItemAdapter(this, list);
 
+        GridLayoutManager layoutManager = new GridLayoutManager(this,2);
 
-
-
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
-        RecyclerView.ItemDecoration decoration = new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.addItemDecoration(decoration);
         recyclerView.setAdapter(itemAdapter);
+
     }
 
     @Override
@@ -76,8 +75,8 @@ public class ProductActivity extends AppCompatActivity {
                                 Item item = new Item(document.getString("id"), document.getString("name"), document.getString("quantity"), document.getString("picture"), document.getString("category"), document.getString("filter"));
                                 item.setDocId(document.getId());
                                 list.add(item);
+                                itemAdapter.notifyDataSetChanged();
                             }
-                            itemAdapter.notifyDataSetChanged();
                         }else{
                             Toast.makeText(getApplicationContext(), "Data gagal di ambil!", Toast.LENGTH_SHORT).show();
                         }

@@ -105,9 +105,11 @@ public class LoginActivity extends AppCompatActivity {
                                         Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
                                         Toast.makeText(LoginActivity.this, "Selamat datang admin", Toast.LENGTH_SHORT).show();
                                         startActivity(intent);
+                                        finish();
                                     }else{
                                         Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                                         startActivity(intent);
+                                        finish();
                                     }
 
                                 }
