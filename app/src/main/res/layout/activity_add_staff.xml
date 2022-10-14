@@ -8,14 +8,14 @@
     android:gravity="center_vertical"
     android:orientation="vertical"
     android:padding="15dp"
-    tools:context=".SignupActivity">
+    tools:context=".AddStaffActivity">
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
-        android:text="Register Account"
+        android:text="Add Account Staff"
         android:textColor="@color/text_color"
         android:textSize="35sp"
         android:textStyle="bold"
@@ -23,64 +23,52 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="let's explore the world of imports!"
-        android:textAlignment="center"
-        android:textColor="@color/text_color"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
     <EditText
-        android:id="@+id/inputName"
+        android:id="@+id/inputNameStaff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:background="@drawable/edit_text_backgorund"
-        android:hint="Enter your Name"
+        android:hint="Name"
         android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.862"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/emailStaff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/edit_text_backgorund"
-        android:hint="Enter your Email"
+        android:hint="Email"
         android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputName" />
+        app:layout_constraintTop_toBottomOf="@+id/inputNameStaff" />
 
     <EditText
-        android:id="@+id/passwd"
+        android:id="@+id/passwordStaff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/edit_text_backgorund"
-        android:hint="Enter your Password"
+        android:hint="Password"
         android:inputType="textPassword"
         android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/emailStaff" />
 
     <!-- ProgressBar for loading time -->
     <Button
-        android:id="@+id/btnregister"
+        android:id="@+id/buttonAddStaff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:background="@drawable/btn_background"
-        android:text="Register"
+        android:text="Add Staff"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -88,7 +76,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.896"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwd"
+        app:layout_constraintTop_toBottomOf="@+id/passwordStaff"
         app:layout_constraintVertical_bias="0.0" />
 
     <ProgressBar

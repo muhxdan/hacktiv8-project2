@@ -40,10 +40,22 @@
         <entry key="..\:/GITHUB CLONE/hacktiv8-project2/app/src/main/res/layout/row_item.xml" value="0.264" />
         <entry key="..\:/GITHUB CLONE/hacktiv8-project2/app/src/main/res/layout/row_item_user.xml" value="0.25104166666666666" />
         <entry key="..\:/GITHUB CLONE/hacktiv8-project2/app/src/main/res/layout/text_dropdown_item.xml" value="0.152" />
+        <entry key="..\:/GITHUB CLONE/project2-2/hacktiv8-project2/app/src/main/res/drawable/btn_background.xml" value="0.167" />
         <entry key="..\:/GITHUB CLONE/project2-2/hacktiv8-project2/app/src/main/res/drawable/edit_text_backgorund.xml" value="0.122" />
+        <entry key="..\:/GITHUB CLONE/project2-2/hacktiv8-project2/app/src/main/res/drawable/ic_baseline_filter_list_24.xml" value="0.167" />
+        <entry key="..\:/GITHUB CLONE/project2-2/hacktiv8-project2/app/src/main/res/drawable/row_stock.xml" value="0.147" />
         <entry key="..\:/GITHUB CLONE/project2-2/hacktiv8-project2/app/src/main/res/drawable/spinner_bg.xml" value="0.147" />
-        <entry key="..\:/GITHUB CLONE/project2-2/hacktiv8-project2/app/src/main/res/layout/activity_add_item.xml" value="0.1" />
+        <entry key="..\:/GITHUB CLONE/project2-2/hacktiv8-project2/app/src/main/res/layout/activity_add_item.xml" value="0.4" />
+        <entry key="..\:/GITHUB CLONE/project2-2/hacktiv8-project2/app/src/main/res/layout/activity_add_staff.xml" value="0.25104166666666666" />
         <entry key="..\:/GITHUB CLONE/project2-2/hacktiv8-project2/app/src/main/res/layout/activity_admin.xml" value="0.25104166666666666" />
+        <entry key="..\:/GITHUB CLONE/project2-2/hacktiv8-project2/app/src/main/res/layout/activity_product.xml" value="0.264" />
+        <entry key="..\:/GITHUB CLONE/project2-2/hacktiv8-project2/app/src/main/res/layout/activity_signup.xml" value="0.25104166666666666" />
+        <entry key="..\:/GITHUB CLONE/project2-2/hacktiv8-project2/app/src/main/res/layout/activity_staff.xml" value="0.15260416666666668" />
+        <entry key="..\:/GITHUB CLONE/project2-2/hacktiv8-project2/app/src/main/res/layout/activity_stock.xml" value="0.25104166666666666" />
+        <entry key="..\:/GITHUB CLONE/project2-2/hacktiv8-project2/app/src/main/res/layout/activity_user.xml" value="0.264" />
+        <entry key="..\:/GITHUB CLONE/project2-2/hacktiv8-project2/app/src/main/res/layout/col_category.xml" value="0.16614583333333333" />
+        <entry key="..\:/GITHUB CLONE/project2-2/hacktiv8-project2/app/src/main/res/layout/row_item.xml" value="0.264" />
+        <entry key="..\:/GITHUB CLONE/project2-2/hacktiv8-project2/app/src/main/res/layout/row_item_user.xml" value="0.4" />
         <entry key="..\:/Users/danuf/AndroidStudioProjects/Projectecommerce/app/src/main/res/layout/activity_add_item.xml" value="0.25104166666666666" />
         <entry key="..\:/Users/danuf/AndroidStudioProjects/Projectecommerce/app/src/main/res/layout/activity_admin.xml" value="0.2375" />
         <entry key="..\:/Users/danuf/AndroidStudioProjects/Projectecommerce/app/src/main/res/layout/activity_login.xml" value="0.22685185185185186" />

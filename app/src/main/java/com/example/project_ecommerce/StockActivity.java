@@ -84,7 +84,6 @@ public class StockActivity extends AppCompatActivity {
     }
 
     public void showCustomDialog(){
-
         itemAdapter.setDialog(new ItemAdapter.Dialog() {
             @Override
             public void onClick(int pos) {
@@ -118,7 +117,7 @@ public class StockActivity extends AppCompatActivity {
         getData();
     }
 
-    private void getData(){
+    public void getData(){
         progressDialog.show();
         db.collection("item").orderBy("date")
                 .get()
@@ -129,7 +128,7 @@ public class StockActivity extends AppCompatActivity {
                         list.clear();
                         if (task.isSuccessful()){
                             for (QueryDocumentSnapshot document : task.getResult()){
-                                Item item = new Item(document.getString("id"), document.getString("name"), document.getString("quantity"), document.getString("picture"), document.getString("category"), document.getString("filter"), document.getString("price"));
+                                Item item = new Item(document.getString("id"), document.getString("name"), document.getString("quantity"), document.getString("picture"), document.getString("category"), document.getString("filter"), document.getString("price"), document.getString("description"));
                                 item.setDocId(document.getId());
                                 list.add(item);
                             }

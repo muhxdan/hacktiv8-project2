@@ -37,7 +37,7 @@ import java.util.Map;
 
 public class AddItemActivity extends AppCompatActivity {
 
-    private EditText inputIdItem, inputNameItem, inputQuantityItem, inputPictureItem, inputPriceItem;
+    private EditText inputIdItem, inputNameItem, inputQuantityItem, inputPictureItem, inputPriceItem, inputDescriptionItem;
     private Button buttonAddItem;
     private FirebaseFirestore db;
     private ProgressDialog progressDialog;
@@ -58,8 +58,8 @@ public class AddItemActivity extends AppCompatActivity {
         inputQuantityItem = (EditText) findViewById(R.id.inputItemQuantity);
         inputPictureItem = (EditText) findViewById(R.id.inputItemPicture);
         inputPriceItem = (EditText) findViewById(R.id.inputItemPrice);
+        inputDescriptionItem = (EditText) findViewById(R.id.inputItemDescription);
         buttonAddItem = (Button) findViewById(R.id.buttonAddItem);
-
 
         dropdownCategory = (Spinner) findViewById(R.id.dropdownMenu);
         dropdownFilter = (Spinner) findViewById(R.id.dropdownFilter);
@@ -68,7 +68,7 @@ public class AddItemActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(inputIdItem.getText().toString().isEmpty() || inputPriceItem.getText().toString().isEmpty() || inputNameItem.getText().toString().isEmpty() || inputQuantityItem.getText().toString().isEmpty() || inputPictureItem.getText().toString().isEmpty()){
+                if(inputIdItem.getText().toString().isEmpty() || inputPriceItem.getText().toString().isEmpty() || inputNameItem.getText().toString().isEmpty() || inputQuantityItem.getText().toString().isEmpty() || inputPictureItem.getText().toString().isEmpty() || inputDescriptionItem.getText().toString().isEmpty()){
                     Toast.makeText(AddItemActivity.this, "Tolong isi semua field", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -81,7 +81,7 @@ public class AddItemActivity extends AppCompatActivity {
                     }
                 }
 
-                saveData(inputIdItem.getText().toString(),dropdownCategory.getSelectedItem().toString().toLowerCase(Locale.ROOT), dropdownFilter.getSelectedItem().toString().toLowerCase(Locale.ROOT), inputNameItem.getText().toString(), inputQuantityItem.getText().toString(), inputPictureItem.getText().toString(), inputPriceItem.getText().toString());
+                saveData(inputIdItem.getText().toString(),dropdownCategory.getSelectedItem().toString().toLowerCase(Locale.ROOT), dropdownFilter.getSelectedItem().toString().toLowerCase(Locale.ROOT), inputNameItem.getText().toString(), inputQuantityItem.getText().toString(), inputPictureItem.getText().toString(), inputPriceItem.getText().toString(), inputDescriptionItem.getText().toString());
                 
             }
         });
@@ -90,7 +90,7 @@ public class AddItemActivity extends AppCompatActivity {
 
     }
 
-    private void saveData(String id, String category, String filter, String name, String quantity, String picture, String price){
+    private void saveData(String id, String category, String filter, String name, String quantity, String picture, String price, String description){
         Map<String, Object> item = new HashMap<>();
         item.put("id", id);
         item.put("category", category);
@@ -100,6 +100,7 @@ public class AddItemActivity extends AppCompatActivity {
         item.put("picture", picture);
         item.put("date", FieldValue.serverTimestamp());
         item.put("price", price);
+        item.put("description", description);
 
         progressDialog.show();
         db.collection("item")

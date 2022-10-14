@@ -1,18 +1,22 @@
 package com.example.project_ecommerce;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.WindowManager;
-import android.widget.Toast;
-
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SplashActivity extends AppCompatActivity {
-    private static int SPLASH_SCREEN_TIME_OUT=1000;
+    private static int SPLASH_SCREEN_TIME_OUT = 1500;
     private FirebaseAuth auth;
+    private FirebaseFirestore db;
+    private List<String> listData = new ArrayList<>();
+    private List<String> listAs = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,20 +24,27 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         auth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+
+        SharedPreferences mPrefs = getSharedPreferences("lastIntent",0);
+        String lastIntent = mPrefs.getString("intent", "");
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 if(auth.getCurrentUser() != null) {
-                    String getEmail = auth.getCurrentUser().getEmail().toString();
-
-                    if(getEmail.equals("admin@admin.com") || getEmail.equals("admin1@admin.com")){
+                    if (lastIntent.equals("admin")) {
                         Intent intent = new Intent(SplashActivity.this, AdminActivity.class);
-                        Toast.makeText(SplashActivity.this, "Selamat datang admin", Toast.LENGTH_SHORT).show();
                         startActivity(intent);
-                    }else{
+                        finish();
+                    } else if(lastIntent.equals("staff")){
+                        Intent intent = new Intent(SplashActivity.this, StaffActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }else if(lastIntent.equals("user")){
                         Intent intent = new Intent(SplashActivity.this, UserActivity.class);
                         startActivity(intent);
+                        finish();
                     }
                 } else {
                     Intent intent = new Intent(SplashActivity.this, LoginActivity.class);

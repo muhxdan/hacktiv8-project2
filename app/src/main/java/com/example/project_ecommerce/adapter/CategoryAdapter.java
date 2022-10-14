@@ -68,17 +68,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
             super(itemView);
             courseTV = itemView.findViewById(R.id.idTVCourse);
             courseIV = itemView.findViewById(R.id.idIVcourseIV);
-            linearLayout = itemView.findViewById(R.id.temp);
 
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-//                    getAllDataCategory("category", "pakaian");
                     Intent intent = new Intent(mcontext, ProductActivity.class);
                     intent.putExtra("category", categoryName[getLayoutPosition()]);
                     mcontext.startActivity(intent);
-//                    Toast.makeText(mcontext, categoryName[getLayoutPosition()], Toast.LENGTH_SHORT).show();
                 }
             });
 

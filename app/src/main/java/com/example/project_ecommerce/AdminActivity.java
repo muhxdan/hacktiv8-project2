@@ -39,16 +39,15 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.buttonToStaff:
-                Toast.makeText(this, auth.getCurrentUser().getEmail().toString(), Toast.LENGTH_SHORT).show();
+                Intent intentStaff = new Intent(AdminActivity.this, AddStaffActivity.class);
+                startActivity(intentStaff);
                 break;
             case R.id.buttonToStock:
-                Toast.makeText(this, "Button Stock", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(AdminActivity.this, StockActivity.class);
-                startActivity(intent);
+                Intent intentStock = new Intent(AdminActivity.this, StockActivity.class);
+                startActivity(intentStock);
                 break;
             case R.id.buttonToLogout:
                 auth.signOut();
-                Toast.makeText(AdminActivity.this, "Successfully logged out", Toast.LENGTH_SHORT).show();
                 finish();
                 startActivity(new Intent(AdminActivity.this,LoginActivity.class));
                 break;

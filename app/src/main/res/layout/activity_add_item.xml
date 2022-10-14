@@ -25,7 +25,7 @@
                     android:layout_marginEnd="14dp"
                     android:background="@drawable/edit_text_backgorund"
                     android:hint="Id Item"
-
+                        android:inputType="number"
                     android:padding="15dp" />
 
                 <Spinner
@@ -86,6 +86,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="14dp"
                     android:background="@drawable/edit_text_backgorund"
+                    android:inputType="number"
                     android:hint="Price Item"
                     android:padding="15dp" />
 
@@ -98,6 +99,7 @@
                     android:layout_marginEnd="14dp"
                     android:background="@drawable/edit_text_backgorund"
                     android:hint="Quantity item"
+                    android:inputType="number"
                     android:padding="15dp" />
 
                 <EditText

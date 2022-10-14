@@ -1,12 +1,12 @@
 package com.example.project_ecommerce.model;
 
 public class Item {
-    private String id, docId, name, quantity, picture, category, filter, price;
+    private String id, docId, name, quantity, picture, category, filter, price, description;
 
     public Item(){}
 
 
-    public Item(String id, String name, String quantity, String picture, String category, String filter, String price){
+    public Item(String id, String name, String quantity, String picture, String category, String filter, String price, String description){
         this.id = id;
         this.name = name;
         this.quantity = quantity;
@@ -14,6 +14,7 @@ public class Item {
         this.category = category;
         this.filter = filter;
         this.price = price;
+        this.description = description;
     }
 
     public String getPrice() {
@@ -76,5 +77,13 @@ public class Item {
 
     public void setFilter(String filter) {
         this.filter = filter;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

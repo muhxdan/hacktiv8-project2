@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -24,19 +25,27 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.example.project_ecommerce.ProductActivity;
 import com.example.project_ecommerce.R;
+import com.example.project_ecommerce.StockActivity;
 import com.example.project_ecommerce.UserActivity;
 import com.example.project_ecommerce.model.Item;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.imageview.ShapeableImageView;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.auth.User;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> {
     private Context context;
     private List<Item> list;
     private Dialog dialog;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public interface Dialog{
         void onClick(int pos);
@@ -55,10 +64,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         if(context instanceof ProductActivity){
-            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_item_user, parent, false);
+            View itemView = LayoutInflater.from(context).inflate(R.layout.row_item_user, parent, false);
             return new MyViewHolder(itemView);
         }else{
-            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_item, parent, false);
+            View itemView = LayoutInflater.from(context).inflate(R.layout.row_item, parent, false);
             return new MyViewHolder(itemView);
         }
     }
@@ -68,7 +77,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
             if(context instanceof ProductActivity){
                 holder.userItemName.setText(list.get(position).getName());
                 holder.userItemPrice.setText("Rp." + list.get(position).getPrice());
-                holder.userItemStock.setText(list.get(position).getQuantity());
+                holder.userItemStock.setText("Stock: " +list.get(position).getQuantity());
 
                 Glide.with(context)
                         .load(list.get(position).getPicture())
@@ -121,9 +130,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
         TextView idItem, nameItem, quantityItem;
         ImageView pictureItem;
         ProgressBar progressBar;
+        Button updateStockItem, deleteItem;
 
         TextView userItemName, userItemPrice, userItemStock;
-        ImageView userItemPicture;
+        ShapeableImageView userItemPicture;
         ProgressBar progressBarUser;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -133,21 +143,50 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
             quantityItem = (TextView) itemView.findViewById(R.id.itemQuantity);
             pictureItem = (ImageView) itemView.findViewById(R.id.itemImage);
             progressBar = (ProgressBar) itemView.findViewById(R.id.progress);
+            updateStockItem = (Button) itemView.findViewById(R.id.updateStockItem);
+            deleteItem = (Button) itemView.findViewById(R.id.deleteItem);
 
             userItemName = (TextView) itemView.findViewById(R.id.userItemName);
             userItemPrice = (TextView) itemView.findViewById(R.id.userItemPrice);
             userItemStock = (TextView) itemView.findViewById(R.id.userItemStock);
-            userItemPicture = (ImageView) itemView.findViewById(R.id.userItemPict);
+            userItemPicture = (ShapeableImageView) itemView.findViewById(R.id.userItemPict);
             progressBarUser = (ProgressBar) itemView.findViewById(R.id.progressBarUser);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (dialog!=null){
-                        dialog.onClick(getLayoutPosition());
+            if(context instanceof StockActivity){
+                updateStockItem.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (dialog!=null){
+                            dialog.onClick(getLayoutPosition());
+                        }
                     }
-                }
-            });
+                });
+
+                deleteItem.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        db.collection("item")
+                                .document(list.get(getLayoutPosition()).getDocId())
+                                .delete()
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(context, "Success delete item", Toast.LENGTH_SHORT).show();
+                                        ((StockActivity) context).getData();
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(context, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                    }
+                });
+            }
+
+
         }
     }
 }

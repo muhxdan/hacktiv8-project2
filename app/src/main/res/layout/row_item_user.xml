@@ -1,28 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="230dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:padding="5dp"
-    android:id="@+id/temp"
-    android:background="@drawable/row_stock"
-    android:orientation="vertical">
+    app:cardCornerRadius="13dp"
+    android:elevation="2dp"
+    android:layout_marginEnd="15dp"
+    android:layout_marginBottom="15dp"
+    android:layout_marginStart="1dp"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/userItemPict"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_background"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="160dp"
+        android:layout_height="230dp">
 
         <ProgressBar
             android:id="@+id/progressBarUser"
@@ -30,37 +19,57 @@
             android:layout_height="69dp"
             android:padding="15dp"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/userItemPict"
+            app:layout_constraintEnd_toEndOf="@+id/userItemPict"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/userItemPict" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/userItemPict"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/poster" />
+
+        <TextView
+            android:id="@+id/userItemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="7dp"
+            android:text="Special Pizza"
+            android:fontFamily="@font/poppinssemibold"
+            android:textColor="#46474B"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userItemPict" />
+
+        <TextView
+            android:id="@+id/userItemStock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stock : "
+            android:fontFamily="@font/poppinsmedium"
+            android:textColor="#C7C5C5"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@+id/userItemName"
+            app:layout_constraintTop_toBottomOf="@+id/userItemName" />
+
+        <TextView
+            android:id="@+id/userItemPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="$12.50"
+            android:fontFamily="@font/poppinsbold"
+            android:textColor="#46474B"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="@+id/userItemName"
+            app:layout_constraintTop_toBottomOf="@+id/userItemStock" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/userItemName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Name"
-        android:textSize="17dp"
-        android:gravity="center"
-        android:maxLines="1"
-        android:ellipsize="end" />
-
-    <TextView
-        android:id="@+id/userItemPrice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Price"
-        android:textSize="17dp"
-        android:textStyle="bold"/>
-
-    <TextView
-        android:id="@+id/userItemStock"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Stock"
-        android:textSize="17dp"/>
-
-</LinearLayout>
+</androidx.cardview.widget.CardView>

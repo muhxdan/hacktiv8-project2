@@ -3,8 +3,8 @@
 
     <string name="prompt">Choose a country</string>
 
-    <string-array name="dropdownCategory" >
-        <item >Pakaian</item>
+    <string-array name="dropdownCategory">
+        <item>Pakaian</item>
         <item>Elektronik</item>
         <item>Peralatan Rumah Tangga</item>
         <item>Others</item>
