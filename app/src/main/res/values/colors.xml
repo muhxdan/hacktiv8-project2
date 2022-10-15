@@ -11,4 +11,5 @@
     <color name="text_color">#655446</color>
     <color name="button_background">#fab95b</color>
     <color name="register_now">#4686C3</color>
+    <color name="background_detail">#fab95b</color>
 </resources>
