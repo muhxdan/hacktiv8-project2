@@ -85,7 +85,6 @@ public class ProductActivity extends AppCompatActivity {
         itemAdapter = new ItemAdapter(this, list);
 
         GridLayoutManager layoutManager = new GridLayoutManager(this,2);
-
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(itemAdapter);
         txtInfo.append(getCategory);

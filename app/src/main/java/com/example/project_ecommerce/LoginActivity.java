@@ -84,6 +84,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         getData();
+
     }
 
     private void loginUserAccount() {

@@ -6,6 +6,20 @@
         <entry key="..\:/Code/Android Studio/.PROJECT/.PROJECT 2/hacktiv8-project2/app/src/main/res/drawable/background_detail.xml" value="0.262" />
         <entry key="..\:/Code/Android Studio/.PROJECT/.PROJECT 2/hacktiv8-project2/app/src/main/res/drawable/ic_baseline_remove_24.xml" value="0.262" />
         <entry key="..\:/Code/Android Studio/.PROJECT/.PROJECT 2/hacktiv8-project2/app/src/main/res/layout/activity_detail_information.xml" value="0.25677083333333334" />
+        <entry key="..\:/GITHUB CLONE/project2-4/hacktiv8-project2/app/src/main/res/layout/activity_add_item.xml" value="0.2" />
+        <entry key="..\:/GITHUB CLONE/project2-4/hacktiv8-project2/app/src/main/res/layout/activity_add_staff.xml" value="0.25104166666666666" />
+        <entry key="..\:/GITHUB CLONE/project2-4/hacktiv8-project2/app/src/main/res/layout/activity_admin.xml" value="0.25104166666666666" />
+        <entry key="..\:/GITHUB CLONE/project2-4/hacktiv8-project2/app/src/main/res/layout/activity_detail_information.xml" value="0.264" />
+        <entry key="..\:/GITHUB CLONE/project2-4/hacktiv8-project2/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/GITHUB CLONE/project2-4/hacktiv8-project2/app/src/main/res/layout/activity_product.xml" value="0.30506993006993005" />
+        <entry key="..\:/GITHUB CLONE/project2-4/hacktiv8-project2/app/src/main/res/layout/activity_signup.xml" value="0.25104166666666666" />
+        <entry key="..\:/GITHUB CLONE/project2-4/hacktiv8-project2/app/src/main/res/layout/activity_splash.xml" value="0.25104166666666666" />
+        <entry key="..\:/GITHUB CLONE/project2-4/hacktiv8-project2/app/src/main/res/layout/activity_staff.xml" value="0.25104166666666666" />
+        <entry key="..\:/GITHUB CLONE/project2-4/hacktiv8-project2/app/src/main/res/layout/activity_stock.xml" value="0.264" />
+        <entry key="..\:/GITHUB CLONE/project2-4/hacktiv8-project2/app/src/main/res/layout/activity_user.xml" value="0.25104166666666666" />
+        <entry key="..\:/GITHUB CLONE/project2-4/hacktiv8-project2/app/src/main/res/layout/col_category.xml" value="0.4" />
+        <entry key="..\:/GITHUB CLONE/project2-4/hacktiv8-project2/app/src/main/res/layout/row_item.xml" value="0.4" />
+        <entry key="..\:/GITHUB CLONE/project2-4/hacktiv8-project2/app/src/main/res/layout/row_item_user.xml" value="0.2" />
       </map>
     </option>
   </component>

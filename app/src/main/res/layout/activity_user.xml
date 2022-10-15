@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#787878">
+    android:backgroundTint="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,18 +17,16 @@
             android:id="@+id/category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Kategori"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
-            android:text="Category"
-            android:fontFamily="@font/poppinsmedium"
-            android:textColor="#655446"
-            android:layout_marginBottom="10dp"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textSize="22sp"
+            android:fontFamily="@font/poppinsbold"
+            android:textColor="#EC994B"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvColCategory"
             android:layout_width="match_parent"
-            android:padding="10dp"
             android:layout_height="match_parent"/>
     </LinearLayout>
 
@@ -39,7 +37,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
-        app:backgroundTint="#655446"
+        app:backgroundTint="#EC994B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_baseline_exit_to_app_24" />

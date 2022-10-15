@@ -21,6 +21,8 @@
             android:background="@drawable/btn_background"
             android:text="Logout"
             android:textColor="@color/white"
+            android:fontFamily="@font/poppinsbold"
+            android:includeFontPadding="false"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -46,6 +48,8 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/btn_background"
                     android:text="Add Staff"
+                    android:fontFamily="@font/poppinsbold"
+                    android:includeFontPadding="false"
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     android:textStyle="bold"
@@ -71,6 +75,8 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/btn_background"
                     android:text="Add Stock"
+                    android:fontFamily="@font/poppinsbold"
+                    android:includeFontPadding="false"
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     android:textStyle="bold"
