@@ -9,6 +9,7 @@
     android:orientation="vertical"
     android:padding="15dp"
     tools:context=".LoginActivity">
+
     <ImageView
         android:id="@+id/image"
         android:layout_width="150dp"
@@ -19,7 +20,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.176" />
+        app:layout_constraintVertical_bias="0.134" />
 
     <TextView
         android:id="@+id/textView"
@@ -29,7 +30,7 @@
         android:text="Login Account"
         android:fontFamily="@font/poppinsbold"
         android:textAlignment="center"
-        android:textColor="#EC994B"
+        android:textColor="@color/text_color"
         android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +45,7 @@
         android:text="let's explore the world of imports!"
         android:fontFamily="@font/poppinsmedium"
         android:textAlignment="center"
-        android:textColor="#EC994B"
+        android:textColor="@color/text_color"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -121,6 +122,21 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toTopOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/btnAboutUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/poppinsregular"
+        android:text="ABOUT US"
+        android:textColor="@color/background_detail"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <ProgressBar
         android:id="@+id/progressBar"

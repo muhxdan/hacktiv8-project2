@@ -46,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseFirestore db;
     private List<String> listData = new ArrayList<>();
     private List<String> listAs = new ArrayList<>();
+    private TextView BtnAbout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,16 @@ public class LoginActivity extends AppCompatActivity {
         Btn = findViewById(R.id.login);
         buttonToSignup = findViewById(R.id.buttonToSignup);
         progressbar = findViewById(R.id.progressBar);
+        BtnAbout = findViewById(R.id.btnAboutUs);
+
+
+        BtnAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(LoginActivity.this, AboutUsActivity.class);
+                startActivity(i);
+            }
+        });
 
         img.setVisibility(View.VISIBLE);
 
