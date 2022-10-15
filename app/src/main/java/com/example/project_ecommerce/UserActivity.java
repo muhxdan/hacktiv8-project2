@@ -1,21 +1,17 @@
 package com.example.project_ecommerce;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.project_ecommerce.adapter.CategoryAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.auth.User;
 
 public class UserActivity extends AppCompatActivity {
     FloatingActionButton buttonUserLogout;
@@ -43,7 +39,7 @@ public class UserActivity extends AppCompatActivity {
         recyclerView=findViewById(R.id.rvColCategory);
 
         String[] categoryName = getResources().getStringArray(R.array.dropdownCategory);;
-        int[] categoryPicture = {R.drawable.ic_cloth, R.drawable.ic_elec, R.drawable.ic_buku, R.drawable.ic_others};
+        int[] categoryPicture = {R.drawable.ic_cloth, R.drawable.ic_elec, R.drawable.ic_peralatan_rumah_tangga, R.drawable.ic_others};
 
         CategoryAdapter adapter=new CategoryAdapter(this, UserActivity.this, categoryName, categoryPicture);
 
