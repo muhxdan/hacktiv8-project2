@@ -3,6 +3,7 @@ package com.example.project_ecommerce.adapter;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
@@ -23,6 +26,7 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.example.project_ecommerce.DetailInformationActivity;
 import com.example.project_ecommerce.ProductActivity;
 import com.example.project_ecommerce.R;
 import com.example.project_ecommerce.StockActivity;
@@ -78,6 +82,19 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
                 holder.userItemName.setText(list.get(position).getName());
                 holder.userItemPrice.setText("Rp." + list.get(position).getPrice());
                 holder.userItemStock.setText("Stock: " +list.get(position).getQuantity());
+
+                holder.btnInfo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent i = new Intent(context, DetailInformationActivity.class);
+                        i.putExtra("nama-produk", list.get(position).getName());
+                        i.putExtra("harga-produk", list.get(position).getPrice());
+                        i.putExtra("desc-produk", list.get(position).getDescription());
+                        i.putExtra("pict-produk", list.get(position).getPicture());
+                        view.getContext().startActivity(i);
+                        Toast.makeText(context, list.get(position).getName(), Toast.LENGTH_SHORT).show();
+                    }
+                });
 
                 Glide.with(context)
                         .load(list.get(position).getPicture())
@@ -136,6 +153,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
         ShapeableImageView userItemPicture;
         ProgressBar progressBarUser;
 
+        CardView btnInfo;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             idItem = (TextView) itemView.findViewById(R.id.itemId);
@@ -151,6 +170,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
             userItemStock = (TextView) itemView.findViewById(R.id.userItemStock);
             userItemPicture = (ShapeableImageView) itemView.findViewById(R.id.userItemPict);
             progressBarUser = (ProgressBar) itemView.findViewById(R.id.progressBarUser);
+
+            btnInfo = itemView.findViewById(R.id.cardView);
+
+
 
             if(context instanceof StockActivity){
                 updateStockItem.setOnClickListener(new View.OnClickListener() {
