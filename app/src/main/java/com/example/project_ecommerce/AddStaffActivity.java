@@ -29,6 +29,7 @@ public class AddStaffActivity extends AppCompatActivity {
     Button buttonAddStaff;
     FirebaseFirestore db;
     FirebaseAuth auth;
+    private ProgressBar progressbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class AddStaffActivity extends AppCompatActivity {
         inputEmailStaff = (EditText) findViewById(R.id.emailStaff);
         inputPasswordStaff = (EditText) findViewById(R.id.passwordStaff);
         buttonAddStaff = (Button) findViewById(R.id.buttonAddStaff);
+        progressbar = findViewById(R.id.progressBarStaff);
 
         buttonAddStaff.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,11 +62,12 @@ public class AddStaffActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Tolong isi semua field", Toast.LENGTH_LONG).show();
             return;
         }
-
+        progressbar.setVisibility(View.VISIBLE);
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
+                    progressbar.setVisibility(View.VISIBLE);
                     Toast.makeText(getApplicationContext(), "Add staff successful!", Toast.LENGTH_LONG).show();
                     Map<String, Object> data = new HashMap<>();
                     data.put("name", name);
@@ -77,6 +80,7 @@ public class AddStaffActivity extends AppCompatActivity {
                 }
                 else {
                     Toast.makeText(getApplicationContext(),"Registration failed!!" + " Please try again later", Toast.LENGTH_LONG).show();
+                    progressbar.setVisibility(View.GONE);
                 }
             }
         });

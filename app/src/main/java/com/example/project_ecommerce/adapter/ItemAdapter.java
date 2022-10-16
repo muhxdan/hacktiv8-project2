@@ -1,5 +1,6 @@
 package com.example.project_ecommerce.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -77,7 +78,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
             if(context instanceof ProductActivity){
                 holder.userItemName.setText(list.get(position).getName());
                 holder.userItemPrice.setText("Rp." + list.get(position).getPrice());
@@ -92,7 +93,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
                         i.putExtra("desc-produk", list.get(position).getDescription());
                         i.putExtra("pict-produk", list.get(position).getPicture());
                         view.getContext().startActivity(i);
-                        Toast.makeText(context, list.get(position).getName(), Toast.LENGTH_SHORT).show();
                     }
                 });
 

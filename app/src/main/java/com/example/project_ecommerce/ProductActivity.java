@@ -168,7 +168,7 @@ public class ProductActivity extends AppCompatActivity {
                             getData("filter", "laptop");
                             break;
                         case 2:
-                            getData("filter", "Kipas angin");
+                            getData("filter", "kipas angin");
                             break;
                         case 3:
                             getData("filter", "tv");

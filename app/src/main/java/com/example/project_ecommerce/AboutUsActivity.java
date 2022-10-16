@@ -15,11 +15,6 @@ public class AboutUsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_about_us);
     }
 
-//    String url = "https://api.whatsapp.com/send?phone="+number;
-//    Intent i = new Intent(Intent.ACTION_VIEW);
-//    i.setData(Uri.parse(url));
-//    startActivity(i);
-
     public void whatsapp(View view) {
         int viewID = view.getId();
         String number = null;

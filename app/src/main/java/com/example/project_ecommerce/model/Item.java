@@ -3,9 +3,6 @@ package com.example.project_ecommerce.model;
 public class Item {
     private String id, docId, name, quantity, picture, category, filter, price, description;
 
-    public Item(){}
-
-
     public Item(String id, String name, String quantity, String picture, String category, String filter, String price, String description){
         this.id = id;
         this.name = name;

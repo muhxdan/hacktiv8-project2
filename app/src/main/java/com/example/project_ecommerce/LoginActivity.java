@@ -99,17 +99,15 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginUserAccount() {
-
-        progressbar.setVisibility(View.VISIBLE);
         String email, password;
         email = emailTextView.getText().toString();
         password = passwordTextView.getText().toString();
 
         if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(getApplicationContext(), "Please enter email!!", Toast.LENGTH_LONG) .show();
+            Toast.makeText(getApplicationContext(), "Required field", Toast.LENGTH_LONG) .show();
             return;
         }
-
+        progressbar.setVisibility(View.VISIBLE);
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(
                         new OnCompleteListener<AuthResult>() {
@@ -120,7 +118,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
                                 if (task.isSuccessful()) {
-                                    progressbar.setVisibility(View.GONE);
+                                    progressbar.setVisibility(View.VISIBLE);
                                     for(int x = 0; x < listData.size(); x++){
                                         if(listData.get(x).equals(email) && listAs.get(x).equals("admin")){
                                             editor.putString("intent", "admin");

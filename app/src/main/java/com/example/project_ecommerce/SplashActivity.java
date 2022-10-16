@@ -13,19 +13,12 @@ import java.util.List;
 public class SplashActivity extends AppCompatActivity {
     private static int SPLASH_SCREEN_TIME_OUT = 1500;
     private FirebaseAuth auth;
-    private FirebaseFirestore db;
-    private List<String> listData = new ArrayList<>();
-    private List<String> listAs = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_splash);
-
         auth = FirebaseAuth.getInstance();
-        db = FirebaseFirestore.getInstance();
-
         SharedPreferences mPrefs = getSharedPreferences("lastIntent",0);
         String lastIntent = mPrefs.getString("intent", "");
 

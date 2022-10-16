@@ -35,7 +35,6 @@ public class CustomOnItemSelectedListener implements android.widget.AdapterView.
         }else{
             setData(others);
         }
-
     }
 
     @Override

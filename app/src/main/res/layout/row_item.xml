@@ -104,7 +104,6 @@
             android:layout_marginBottom="10dp"
             android:paddingTop="5dp"
             android:background="@drawable/btn_background"/>
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

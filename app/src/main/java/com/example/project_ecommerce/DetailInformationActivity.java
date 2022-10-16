@@ -49,11 +49,7 @@ public class DetailInformationActivity extends AppCompatActivity {
                 txtAmount.setText(String.valueOf(amount));
                 break;
             case R.id.btnMinus:
-                if(amount == 0){
-                    amount = 0;
-                }
-                amount--;
-
+                amount = amount > 1 ? --amount : 1;
                 txtAmount.setText(String.valueOf(amount));
                 break;
             default:

@@ -32,7 +32,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
     private String[] categoryName;
     private int[] categoryPicture;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    List<Item> list = new ArrayList<>();
     Activity activity;
 
     public CategoryAdapter( Context mcontext,Activity activity , String[] categoryName, int[] categoryPicture) {
